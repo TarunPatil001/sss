@@ -76,7 +76,7 @@ function ListingCard({
       onClick={() => router.push(`/listings/${data.id}`)}
       className="col-span-1 cursor-pointer group"
     >
-      <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-0 w-full">
         <div className="aspect-square w-full relative overflow-hidden rounded-xl">
           <Image
             fill
@@ -94,9 +94,10 @@ function ListingCard({
         <div className="font-light text-neutral-500">
           {reservationDate || data.category}
         </div>
-        <div className="flex flex-row items-center gap-">
+        <div className="flex flex-row items-center gap-1">
           <div className="flex gap-1 font-semibold">
-            ${price} {!reservation && <div className="font-light"> Night</div>}
+            ${price}{" "}
+            {!reservation && <div className="font-light"> per night</div>}
           </div>
         </div>
         {onAction && actionLabel && (

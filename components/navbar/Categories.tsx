@@ -14,7 +14,8 @@ import {
 } from "react-icons/gi";
 import { IoDiamond } from "react-icons/io5";
 import { MdOutlineVilla } from "react-icons/md";
-import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
+import { TbBeach, TbMountain, TbPool, TbSailboat } from "react-icons/tb";
+
 import CategoryBox from "../CategoryBox";
 import Container from "../Container";
 
@@ -93,6 +94,11 @@ export const categories = [
     label: "Lux",
     icon: IoDiamond,
     description: "This property is brand new and luxurious!",
+  },
+  {
+    label: "Boats",
+    icon: TbSailboat,
+    description: "This property is in a sea!",
   },
 ];
 
