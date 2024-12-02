@@ -62,12 +62,13 @@ function RentModal({}: Props) {
   const bathroomCount = watch("bathroomCount");
   const imageSrc = watch("imageSrc");
 
+  // Remove 'location' from the dependency array
   const Map = useMemo(
     () =>
       dynamic(() => import("../Map"), {
         ssr: false,
       }),
-    [location]
+    [] // Empty array, meaning it doesn't depend on 'location'
   );
 
   const setCustomValue = (id: string, value: any) => {

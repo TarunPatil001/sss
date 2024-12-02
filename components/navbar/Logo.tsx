@@ -13,10 +13,10 @@ function Logo({}: Props) {
     <div onClick={() => router.push("/")}>
       <Image
         alt="logo"
-        className="hidden md:block cursor-pointer"
+        className="max-md:hidden md:block cursor-pointer"
         height="100"
         width="100"
-        src="/assets/logo.png"
+        src="/assets/airbnb.svg"
       />
     </div>
   );

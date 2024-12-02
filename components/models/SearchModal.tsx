@@ -5,7 +5,7 @@ import { formatISO } from "date-fns";
 import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState, useMemo } from "react";
 import { Range } from "react-date-range";
 
 import Heading from "../Heading";
@@ -38,21 +38,16 @@ function SearchModal({}: Props) {
     key: "selection",
   });
 
-  const Map = useMemo(
-    () =>
-      dynamic(() => import("../Map"), {
-        ssr: false,
-      }),
-    [location]
-  );
+  // Removed location from the dependency array in useMemo
+  const Map = useMemo(() => dynamic(() => import("../Map"), { ssr: false }), []);
 
-  const onBack = () => {
+  const onBack = useCallback(() => {
     setStep((value) => value - 1);
-  };
+  }, []);
 
-  const onNext = () => {
+  const onNext = useCallback(() => {
     setStep((value) => value + 1);
-  };
+  }, []);
 
   const onSubmit = useCallback(async () => {
     if (step !== STEPS.INFO) {
@@ -102,7 +97,7 @@ function SearchModal({}: Props) {
     roomCount,
     bathroomCount,
     dateRange,
-    onNext,
+    onNext, // onNext is now stable due to being defined in useCallback
     params,
   ]);
 
