@@ -59,9 +59,9 @@ body,
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.1);
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.0);
-      -moz-border-radius:;
-      -ms-border-radius:;
-      -o-border-radius:;
+      -moz-border-radius:10px;
+      -ms-border-radius:10px;
+      -o-border-radius:10px;
 }
     
     .scroll-active::-webkit-scrollbar-thumb:window-inactive {

@@ -105,37 +105,13 @@ function Categories({}: Props) {
 
   const isMainPage = pathname === "/";
 
-  // Handle scroll state to dynamically add/remove the class
-  const [isScrolling, setIsScrolling] = useState(false);
-  const scrollContainerRef = useRef(null);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-
-    let timeout;
-    const handleScroll = () => {
-      setIsScrolling(true);
-      clearTimeout(timeout);
-      timeout = setTimeout(() => setIsScrolling(false), 200); // Reset after 200ms
-    };
-
-    container?.addEventListener("scroll", handleScroll);
-
-    return () => {
-      container?.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   if (!isMainPage) {
     return null;
   }
 
   return (
     <Container>
-      <div
-        ref={scrollContainerRef}
-        className={`overflow-x-auto ${isScrolling ? "scroll-active" : ""} custom-scrollbar`}
-      >
+      <div className="overflow-x-auto custom-scrollbar">
         <div className="pt-4 flex flex-row items-center space-x-4">
           {categories.map((items) => (
             <CategoryBox
@@ -152,6 +128,3 @@ function Categories({}: Props) {
 }
 
 export default Categories;
-
-
-
