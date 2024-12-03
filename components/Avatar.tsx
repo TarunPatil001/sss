@@ -14,18 +14,25 @@ function Avatar({ src, userName }: Props) {
       {src ? (
         <Image
           className="rounded-full"
-          height="30"
-          width="30"
-          alt="hasImag"
+          height={30}
+          width={30}
+          alt="hasImage"
           src={src}
         />
       ) : userName ? (
-        <Image className="rounded-full h-[30px] w-[30px]" alt="nameImage" src={`https://ui-avatars.com/api/?name=${userName}`} />
+        <Image
+          className="rounded-full"
+          height={30}
+          width={30}
+          alt="nameImage"
+          src={`https://ui-avatars.com/api/?name=${userName}`}
+          unoptimized // This is necessary for external URLs not managed by Next.js
+        />
       ) : (
         <Image
           className="rounded-full"
-          height="30"
-          width="30"
+          height={30}
+          width={30}
           alt="noUser"
           src="/assets/placeholder.svg"
         />
@@ -35,6 +42,7 @@ function Avatar({ src, userName }: Props) {
 }
 
 export default Avatar;
+
 
 // 'use client';
 // import Image from "next/image";
